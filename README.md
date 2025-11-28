@@ -66,11 +66,29 @@ For free email testing you can use service such as [Mailtrap](https://mailtrap.i
 
 ## With Docker
 
-### 1. Run Docker containers
+The project uses a "Base + Override" pattern for Docker Compose to support both local development and production deployment (e.g., Dokploy).
+
+### 1. Development (Local)
+
+To run the project locally with **hot-reloading** enabled (via volume mounts) and local `.env` files:
 
 ```bash
 docker compose up
 ```
+
+This automatically uses `docker-compose.yml` (base) and `docker-compose.override.yml` (development overrides). The override file mounts your local source code into the containers, ensuring that changes you make are immediately reflected in the running application.
+
+### 2. Production (Dokploy)
+
+For production, the local overrides are ignored. The deployment uses the base configuration along with production-specific settings.
+
+Dokploy (or other production environments) should run:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+```
+
+**Note:** In production, environment variables are not read from `.env` files but must be injected by the deployment platform (e.g., via Dokploy's Environment tab).
 
 ## Without Docker
 
@@ -148,17 +166,6 @@ pnpm install
 # OR
 yarn
 ```
-
-## With Dokploy
-
-Override the static .env files with Dokploy project environment.
-In the advanced menu, you need to edit the default command to :
-
-```bash
-compose -p mspone-landingpage-acvlqy -f ./docker-compose.yml -f ./docker-compose.prod.yml up -d --build --remove-orphans
-```
-
-the docker-compose.prod.yml file is already present in the repository and will override the env files for production.
 
 ## FEATURES
 
