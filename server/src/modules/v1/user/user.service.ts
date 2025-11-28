@@ -51,7 +51,7 @@ export class UserService {
                     throw new UniqueViolation('email')
                 }
 
-                if(err.detail.includes('nick_name' || 'nick' || 'nickName')) {
+                if(['nick_name', 'nick', 'nickName'].some(term => err.detail.includes(term))) {
                     throw new UniqueViolation('displayName')
                 }
             }
