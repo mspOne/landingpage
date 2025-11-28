@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+    client:
+        volumes:
+            - ./client:/poprostuwitold/client
+            - /poprostuwitold/client/node_modules/
+
+    server:
+        build:
+            target: development
+        env_file: ./server/.env
+        volumes:
+            - ./server:/poprostuwitold/server
+            - /poprostuwitold/server/node_modules/
+        command: pnpm run start:debug
+
+    queue-worker:
+        build:
+            target: development
+        env_file: ./workers/queues/.env
+        volumes:
+            - ./workers/queues:/poprostuwitold/workers/queues
+            - /poprostuwitold/workers/queues/node_modules/
+        command: pnpm run start:debug

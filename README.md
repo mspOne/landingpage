@@ -149,6 +149,17 @@ pnpm install
 yarn
 ```
 
+## With Dokploy
+
+Override the static .env files with Dokploy project environment.
+In the advanced menu, you need to edit the default command to :
+
+```bash
+compose -p mspone-landingpage-acvlqy -f ./docker-compose.yml -f ./docker-compose.prod.yml up -d --build --remove-orphans
+```
+
+the docker-compose.prod.yml file is already present in the repository and will override the env files for production.
+
 ## FEATURES
 
 -   Local login & register
