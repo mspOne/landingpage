@@ -1,10 +1,13 @@
 # nest-next-boilerplate
+
 Boilerplate for Nest.js, Next.js, TypeScript stack. Includes social logins, account verification, password change & recover, real-time chats and more.
 
 # Usage
 
-###  0. Environmental variables
-0.1. Create **``.env``** file in **``server``** root directory and fill with following:
+### 0. Environmental variables
+
+0.1. Create **`.env`** file in **`server`** root directory and fill with following:
+
 ```code
 # APP
 NODE_ENV='development'
@@ -42,32 +45,39 @@ OAUTH_GOOGLE_REDIRECT_URL='/api/v1/auth/google/redirect'
 OAUTH_FACEBOOK_ID=[YOUR_FACEBOOK_ID]
 OAUTH_FACEBOOK_SECRET=[YOUR_FACEBOOK_SECRET]
 OAUTH_FACEBOOK_REDIRECT_URL='/api/v1/auth/facebook/redirect'
-``` 
-0.2. Create **``.env``** file in **``workers/queues``** root directory and fill with following:
+```
+
+0.2. Create **`.env`** file in **`workers/queues`** root directory and fill with following:
 
 ```code
 # MAIL
 SMTP_USER=[YOUR_SMTP_USER]
-SMPT_PASSWORD=[YOUR_SMTP_PASSWORD]
+SMTP_PASSWORD=[YOUR_SMTP_PASSWORD]
 
 # REDIS
 # change if you running in a different way than docker compose
 REDIS_HOST='redis-main'
 REDIS_PORT=6379
-``` 
+```
+
 #### **Tip**
+
 For free email testing you can use service such as [Mailtrap](https://mailtrap.io/).
 
 ## With Docker
 
 ### 1. Run Docker containers
+
 ```bash
-docker compose up 
+docker compose up
 ```
 
 ## Without Docker
-### 1. Change contents of ``DATABASE`` and ``REDIS`` sections in ``env`` files
-**``server``**
+
+### 1. Change contents of `DATABASE` and `REDIS` sections in `env` files
+
+**`server`**
+
 ```code
 ...
 
@@ -87,7 +97,8 @@ REDIS_PORT=[YOUR_REDIS_PORT]
 ...
 ```
 
-**``workers/queues``**
+**`workers/queues`**
+
 ```code
 ...
 
@@ -95,80 +106,92 @@ REDIS_PORT=[YOUR_REDIS_PORT]
 REDIS_HOST=[YOUR_REDIS_HOST]
 REDIS_PORT=[YOUR_REDIS_PORT]
 ```
+
 ### 2.1 Server setup
+
 ```bash
-cd server 
+cd server
 ```
+
 ```bash
-npm install 
-# OR 
-pnpm install 
-# OR 
+npm install
+# OR
+pnpm install
+# OR
 yarn
 ```
 
 ### 2.2 Worker
+
 ```bash
 cd workers/queues
 ```
+
 ```bash
-npm install 
-# OR 
-pnpm install 
-# OR 
+npm install
+# OR
+pnpm install
+# OR
 yarn
 ```
 
 ### 3. Client setup
+
 ```bash
-cd client 
+cd client
 ```
+
 ```bash
-npm install 
-# OR 
-pnpm install 
-# OR 
+npm install
+# OR
+pnpm install
+# OR
 yarn
 ```
 
 ## FEATURES
-- Local login & register
-- Social login & register using Google and Facebook
-- Jwt access token & refresh token
-- Account confirmation
-- Password recover
-- Profile update
-- Multiple themes with the ability to add your own
-- Group chat with basic permissions
-- Private chat (also with yourself)
-- Rate limiting
+
+-   Local login & register
+-   Social login & register using Google and Facebook
+-   Jwt access token & refresh token
+-   Account confirmation
+-   Password recover
+-   Profile update
+-   Multiple themes with the ability to add your own
+-   Group chat with basic permissions
+-   Private chat (also with yourself)
+-   Rate limiting
 
 ## TECH STACK
-- Backend:
-    - Nest.js
-    - PostgreSQL
-    - Redis
-    - WebSockets
-    - JWT
-    - Passport.js
-- Frontend
-    - Next.js
-    - Tailwind & DaisyUI
-    - Redux ([rematch](https://rematchjs.org/))
+
+-   Backend:
+    -   Nest.js
+    -   PostgreSQL
+    -   Redis
+    -   WebSockets
+    -   JWT
+    -   Passport.js
+-   Frontend
+    -   Next.js
+    -   Tailwind & DaisyUI
+    -   Redux ([rematch](https://rematchjs.org/))
+
 ## TO DO
-- [x] Local login
-- [x] Google login
-- [x] Facebook login
-- [x] Client app routing
-- [x] Write tests for API
-- [x] Password recover & change features
-- [x] Queues
-- [x] Refresh tokens
-- [X] Chat
-- [ ] Make URL preview
-- [ ] Enable sending images and maybe videos
-- [ ] Public profile page
-- [ ] Refactor chat backend & UI
+
+-   [x] Local login
+-   [x] Google login
+-   [x] Facebook login
+-   [x] Client app routing
+-   [x] Write tests for API
+-   [x] Password recover & change features
+-   [x] Queues
+-   [x] Refresh tokens
+-   [x] Chat
+-   [ ] Make URL preview
+-   [ ] Enable sending images and maybe videos
+-   [ ] Public profile page
+-   [ ] Refactor chat backend & UI
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)

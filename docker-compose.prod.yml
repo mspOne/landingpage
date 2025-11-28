@@ -32,6 +32,6 @@ services:
     queue-worker:
         environment:
             - SMTP_USER=${SMTP_USER}
-            - SMPT_PASSWORD=${SMPT_PASSWORD}
+            - SMTP_PASSWORD=${SMTP_PASSWORD}
             - REDIS_HOST=${REDIS_HOST}
             - REDIS_PORT=${REDIS_PORT}
