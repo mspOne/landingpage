@@ -1,0 +1,37 @@
+services:
+    server:
+        environment:
+            - NODE_ENV=${NODE_ENV}
+            - APP_PORT=${APP_PORT}
+            - ORIGIN=${ORIGIN}
+            - API_PREFIX=${API_PREFIX}
+
+            - JWT_ACCESS_SECRET_KEY=${JWT_ACCESS_SECRET_KEY}
+            - JWT_ACCESS_EXPIRATION_TIME=${JWT_ACCESS_EXPIRATION_TIME}
+            - JWT_REFRESH_SECRET_KEY=${JWT_REFRESH_SECRET_KEY}
+            - JWT_REFRESH_EXPIRATION_TIME=${JWT_REFRESH_EXPIRATION_TIME}
+
+            - DB_TYPE=${DB_TYPE}
+            - DB_USERNAME=${DB_USERNAME}
+            - DB_PASSWORD=${DB_PASSWORD}
+            - DB_HOST=${DB_HOST}
+            - DB_PORT=${DB_PORT}
+            - DB_DATABASE=${DB_DATABASE}
+            - DB_SYNC=${DB_SYNC}
+
+            - REDIS_HOST=${REDIS_HOST}
+            - REDIS_PORT=${REDIS_PORT}
+
+            - OAUTH_GOOGLE_ID=${OAUTH_GOOGLE_ID}
+            - OAUTH_GOOGLE_SECRET=${OAUTH_GOOGLE_SECRET}
+            - OAUTH_GOOGLE_REDIRECT_URL=${OAUTH_GOOGLE_REDIRECT_URL}
+
+            - OAUTH_FACEBOOK_ID=${OAUTH_FACEBOOK_ID}
+            - OAUTH_FACEBOOK_SECRET=${OAUTH_FACEBOOK_SECRET}
+            - OAUTH_FACEBOOK_REDIRECT_URL=${OAUTH_FACEBOOK_REDIRECT_URL}
+    queue-worker:
+        environment:
+            - SMTP_USER=${SMTP_USER}
+            - SMPT_PASSWORD=${SMPT_PASSWORD}
+            - REDIS_HOST=${REDIS_HOST}
+            - REDIS_PORT=${REDIS_PORT}
